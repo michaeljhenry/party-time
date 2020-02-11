@@ -1,6 +1,4 @@
 $(document).ready(function() {
-
-        //$( "#datepicker" ).datepicker();
         $('#datepicker').datepicker({
           showOn: "button",
           buttonImage: "img/calendar.gif",
@@ -18,7 +16,6 @@ $(document).ready(function() {
         'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov','Dec'];
           var birthDate = $( "#datepicker" ).datepicker( "getDate" );
           var birthDateTime = birthDate.getTime();
-          //var htmlBirth = birthDateTime.split(' ').slice(4);
           var birth = birthDate.toDateString();
           var today = new Date();
           var hours = today.getHours();
@@ -26,11 +23,6 @@ $(document).ready(function() {
           var array = birth.split(' ');
           var bday_flag=0;
 
-          /*console.log(birthDate);
-          console.log(birth);
-          console.log(array);*/
-
-          //console.log('Your birthday is ' + array[1] + ' ' + array[2] + '\n');
         
           if(today.getMonth() < daysOfMonth.indexOf(array[1])) {
             var age = today.getFullYear() - array[3] - 1;
@@ -58,15 +50,11 @@ $(document).ready(function() {
             $('#content').html("Boo! No Parties Today");
 
           }
-          //console.log(today.getMonth());
+    
         var ageMinutes = Math.round((today.getTime() - birthDateTime)/(1000*60));// + nowMin);
         var ageDays =  (today.getTime() - birthDateTime)/(1000*60*60*24);
         var ageSplit = ageDays.toString().split('.');
         var newAge = ageSplit[0];
-        /*console.log('You are ' + age + ' years old\n');
-        console.log('You are ' + newAge + ' days old');
-
-        console.log('You are ' + ageMinutes + ' minutes old');*/
 
 
           var tenKDays = new Date(birthDateTime + 1000*60*60*24*10000);
@@ -77,9 +65,6 @@ $(document).ready(function() {
           var fiftyMilMin = new Date(birthDateTime + 1000*60*50000000);
           var billionSec = new Date(birthDateTime + 1000*1000000000);
 
-          /*console.log(tenKDays + '\n' + twentyKDays + '\n' +
-          fivehundredKHrs + '\n' + oneMillionMin + '\n' + tenMillionMin
-          + '\n' + fiftyMilMin + '\n' + billionSec);*/
 
           $('.info_box').html('Your birthday is ' + birth + '<br>' +
           'You are ' + age + ' years old <br>' +
